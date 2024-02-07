@@ -32,7 +32,7 @@ El objetivo del ejercicio es brindarte práctica en el diseño y manipulación d
 
 - id_usuario: tipo número, que sea una clave primaria e incremente su número.
 - nombre: tipo texto y no puede dejarse el campo vacío. Máximo 50 caracteres.
-- apellido tipo texto y no puede dejarse el campo vacío. Máximo 100 caracteres.
+- apellido: tipo texto y no puede dejarse el campo vacío. Máximo 100 caracteres.
 - email: tipo texto y no puede dejarse el campo vacío. Máximo 100 caracteres.
 - edad: tipo número.
 
@@ -76,7 +76,7 @@ INSERT INTO roles (nombre_rol) VALUES
 ('Oro'),
 ('Platino');
 ``` 
-## PASO 3 - Crea la columna `id_rol` u la clave foránea
+## PASO 3 - Crea la columna `id_rol` y la clave foránea
 
 Añade la columna `id_rol` a usuarios. Rellena cada rol con números asociados a la tabla de `roles` 
 
@@ -92,7 +92,7 @@ Si decides no utilizar una clave foránea y aún así intentas establecer una re
 
 ## PASO 4 JOIN
 
-Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol de las dos tablas
+Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol de las dos tablas.
 
 ### Relación tipo 1:N (Uno a varios)
 
@@ -129,7 +129,7 @@ Podría ser algo así:
 UPDATE usuarios SET id_categoria = 1 WHERE id_usuario IN (1, 5, 9, 13, 17);
 ```
 
-## PASO - 4 Realiza cuna consulta para ver la unión de usuarios, roles y categorías
+## PASO - 4 Realiza una consulta para ver la unión de usuarios, roles y categorías
 
 Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol, categorias.nombre_categoria
 
@@ -152,7 +152,7 @@ FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 --- Crea tú la otra
 ```
 
-### PASO 2 - Asocia usuarios a categorías
+## PASO 2 - Asocia usuarios a categorías
 
 ```SQL
 INSERT INTO usuarios_categorias (id_usuario, id_categoria) VALUES
@@ -162,7 +162,6 @@ INSERT INTO usuarios_categorias (id_usuario, id_categoria) VALUES
 (4, 8), (4, 9), (4, 10),
 ```
 
-### PASO 3 - Consulta para ver la unión de usuarios, roles, categorías
+## PASO 3 - Consulta para ver la unión de usuarios, roles, categorías
 
-Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad,
-roles.nombre_rol, categorias.nombre_categoria
+Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol, categorias.nombre_categoria
