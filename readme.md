@@ -104,7 +104,6 @@ Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido,
 Añade estos datos a categorías
 
 ```SQL
-
 -- Insertar datos de categorías
 INSERT INTO categorias (nombre_categoria) VALUES
 ('Electrónicos'),
@@ -122,16 +121,17 @@ INSERT INTO categorias (nombre_categoria) VALUES
 La columna debe ser tipo número
 
 
-## PASO  - Añade categorías a varios usuarios
+## PASO 3 - Añade categorías a varios usuarios
 Podría ser algo así:
+
 ```SQL
 -- Asignar categorías a usuarios específicos
 UPDATE usuarios SET id_categoria = 1 WHERE id_usuario IN (1, 5, 9, 13, 17);
 ```
-
-## PASO 4 - Realiza una consulta para ver la unión de usuarios, roles y categorías
-
+## PASO 4 - Realiza una consulta para ver la unión de usuarios, roles y categorías
 Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol, categorias.nombre_categoria
+
+
 
 ### Relación tipo N:M (muchos a muchos)
 
@@ -146,13 +146,12 @@ Añadiremos dentro de la creación de la tabla intermedia dos claves foráneas.
 - Una que haga referencia el `id_categoría` de la tabla intermedia con el `id_categoria` de `categorías`
 
 Podría ser algo como esto:
-
 ```SQL
 FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 --- Crea tú la otra
 ```
 
-## PASO 2 - Asocia usuarios a categorías
+## PASO 2 - Asocia usuarios a categorías
 
 ```SQL
 INSERT INTO usuarios_categorias (id_usuario, id_categoria) VALUES
@@ -162,6 +161,6 @@ INSERT INTO usuarios_categorias (id_usuario, id_categoria) VALUES
 (4, 8), (4, 9), (4, 10),
 ```
 
-## PASO 3 - Consulta para ver la unión de usuarios, roles, categorías
+## PASO 3 - Consulta para ver la unión de usuarios, roles, categorías
 
-Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol, categorias.nombre_categoria
+Haz un `JOIN` que saque usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol, categorias.nombre_categoria.

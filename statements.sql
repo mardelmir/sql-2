@@ -59,6 +59,7 @@ ALTER TABLE usuarios ADD FOREIGN KEY (id_rol) REFERENCES roles(id_rol);
 SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol
 FROM usuarios
 JOIN roles ON usuarios.id_rol = roles.id_rol
+ORDER BY id_usuario;
 
 
 /* Relación tipo 1:N */
@@ -103,6 +104,7 @@ SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, 
 FROM usuarios
 JOIN roles ON usuarios.id_rol = roles.id_rol
 JOIN categorias ON usuarios.id_categoria = categorias.id_categoria
+ORDER BY id_usuario;
 
 /* Relación tipo N:M */
 -- PASO 1
@@ -112,7 +114,7 @@ id_usuario INT,
 id_categoria INT,
 FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
 FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
-)
+);
 
 
 -- PASO 2
@@ -128,4 +130,5 @@ SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, 
 FROM usuarios
 JOIN usuarios_categorias ON usuarios.id_usuario = usuarios_categorias.id_usuario
 JOIN roles ON usuarios.id_rol = roles.id_rol
-JOIN categorias ON usuarios_categorias.id_categoria = categorias.id_categoria;
+JOIN categorias ON usuarios_categorias.id_categoria = categorias.id_categoria
+ORDER BY id_usuario;
