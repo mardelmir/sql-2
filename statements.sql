@@ -98,6 +98,7 @@ UPDATE usuarios SET id_categoria = 8 WHERE id_usuario IN (10, 18);
 UPDATE usuarios SET id_categoria = 9 WHERE id_usuario IN (15, 20);
 UPDATE usuarios SET id_categoria = 10 WHERE id_usuario IN (16, 19);
 
+-- Debería haberse añadido una FOREIGN KEY, se ha dejado deliberadamente en blanco para comprobar que JOIN funciona también sin ella.
 
 -- PASO 4
 SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol, categorias.nombre_categoria
@@ -131,4 +132,11 @@ FROM usuarios
 JOIN usuarios_categorias ON usuarios.id_usuario = usuarios_categorias.id_usuario
 JOIN roles ON usuarios.id_rol = roles.id_rol
 JOIN categorias ON usuarios_categorias.id_categoria = categorias.id_categoria
+ORDER BY id_usuario;
+
+SELECT u.id_usuario, u.nombre, u.apellido, u.email, u.edad, r.nombre_rol, c.nombre_categoria
+FROM usuarios u
+JOIN roles r ON u.id_rol = r.id_rol
+JOIN usuarios_categorias ON u.id_usuario = usuarios_categorias.id_usuario
+JOIN categorias c ON usuarios_categorias.id_categoria = c.id_categoria
 ORDER BY id_usuario;
